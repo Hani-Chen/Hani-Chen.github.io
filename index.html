@@ -478,6 +478,642 @@ pause.onclick = function() {
 
 
   
+    <article id="post-day9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/09/27/day9/" target="_blank">html - 弹窗组件</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/09/27/day9/" class="archive-article-date">
+        <time datetime="2019-09-27T12:51:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="html-弹窗组件"><a href="#html-弹窗组件" class="headerlink" title="html - 弹窗组件"></a>html - 弹窗组件</h1><h2 id="简单明了直接码代码！！！"><a href="#简单明了直接码代码！！！" class="headerlink" title="简单明了直接码代码！！！"></a>简单明了直接码代码！！！</h2><h3 id="HTML-代码块"><a href="#HTML-代码块" class="headerlink" title="HTML 代码块"></a>HTML 代码块</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 弹窗 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal show"</span> <span class="attr">id</span>=<span class="string">"gloryModal"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-content"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 背景 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-bg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-body"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 关闭按钮 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"modal-close"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 弹窗内容区 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span>点击显示弹窗<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="scss-代码块"><a href="#scss-代码块" class="headerlink" title="scss 代码块"></a>scss 代码块</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">// 阻止全屏后页面滚动</span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.overflow</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 弹窗 - 定位容器 */</span></span><br><span class="line"><span class="selector-class">.modal</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1000</span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.modal</span><span class="selector-class">.show</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 弹窗 - 内容容器 */</span></span><br><span class="line">  <span class="selector-class">.modal-content</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 弹窗 - 背景容器 */</span></span><br><span class="line">  <span class="selector-class">.modal-bg</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.9</span>);</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 弹窗 - 内容 */</span></span><br><span class="line">  <span class="selector-class">.modal-body</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 弹窗 - 关闭 */</span></span><br><span class="line">  <span class="selector-class">.modal-close</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f00</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/modal-close.png);</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">40px</span> <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">background-position</span>: center;</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repat;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="selector-id">#btn</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">6px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">36px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 按ID显示弹窗</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showModal</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">  $(<span class="string">'#'</span> + id).addClass(<span class="string">'show'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 按ID隐藏弹窗</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hideModal</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">  $(<span class="string">'#'</span> + id).removeClass(<span class="string">'show'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 弹窗关闭按钮事件</span></span><br><span class="line">$(<span class="string">'body'</span>).on(<span class="string">'click'</span>, <span class="string">'.modal-close'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="keyword">this</span>).parents(<span class="string">'.modal'</span>).removeClass(<span class="string">'show'</span>)</span><br><span class="line">  $(<span class="string">'body'</span>).removeClass(<span class="string">'overflow'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 弹窗关闭按钮事件</span></span><br><span class="line">$(<span class="string">'#btn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 显示弹窗</span></span><br><span class="line">  showModal(<span class="string">'gloryModal'</span>)</span><br><span class="line">  <span class="comment">// 静止滚动</span></span><br><span class="line">  $(<span class="string">'body'</span>).addClass(<span class="string">'overflow'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码运行结果"><a href="#代码运行结果" class="headerlink" title="代码运行结果"></a>代码运行结果</h3>
+<style>
+html,
+body {
+  height: 100%;
+}
+body.overflow {
+  overflow: hidden;
+  height: 100%;
+}
+/* 弹窗 - 定位容器 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1000;
+  
+}
+.modal.show {
+    display: block;
+  }
+  /* 弹窗 - 内容容器 */
+  .modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* 弹窗 - 背景容器 */
+  .modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+  }
+  /* 弹窗 - 内容 */
+  .modal-body {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  /* 弹窗 - 关闭 */
+  .modal-close {
+    position: fixed;
+    right: 60px;
+    top: 60px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background: #f00;
+    background-image: url(../img/modal-close.png);
+    background-size: 40px 40px;
+    background-position: center;
+    background-repeat: no-repat;
+    cursor: pointer;
+  }
+#btn{
+  display: block;
+  width: 150px;
+  height: 36px;
+  margin-top: 20px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 36px;
+  cursor: pointer;
+}
+</style>
+<!-- 弹窗 -->
+<div class="modal" id="gloryModal">
+  <div class="modal-content">
+    <!-- 背景 -->
+    <div class="modal-bg"></div>
+    <div class="modal-body">
+      <!-- 关闭按钮 -->
+      <span class="modal-close">X</span>
+      <!-- 弹窗内容区 -->
+      <p>我是弹窗内容</p>
+    </div>
+  </div>
+</div>
+<span id="btn">点击显示弹窗</span>
+<script>
+/**
+ * 按ID显示弹窗
+*/
+function showModal(id) {
+  $('#' + id).addClass('show')
+}
+
+/**
+ * 按ID隐藏弹窗
+*/
+function hideModal(id) {
+  $('#' + id).removeClass('show')
+}
+
+// 弹窗关闭按钮事件
+$('body').on('click', '.modal-close', function() {
+  $(this).parents('.modal').removeClass('show')
+  $('body').removeClass('overflow')
+})
+
+// 弹窗关闭按钮事件
+$('#btn').on('click', function() {
+  // 显示弹窗
+  showModal('gloryModal')
+  // 静止滚动
+  $('body').addClass('overflow')
+})
+</script>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web前端 - html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-实用组件//" class="article-tag-list-link color3">web前端 - 实用组件</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-实用组件/弹窗组件//" class="article-tag-list-link color5">弹窗组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/09/27/day9/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-day8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/28/day8/" target="_blank">js - 预加载</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/28/day8/" class="archive-article-date">
+        <time datetime="2019-08-28T01:00:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="js-预加载"><a href="#js-预加载" class="headerlink" title="js - 预加载"></a>js - 预加载</h1><h2 id="预加载-js-封装函数"><a href="#预加载-js-封装函数" class="headerlink" title="预加载 js 封装函数"></a>预加载 js 封装函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 预加载函数</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  预加载图片资源</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Array&#125;</span> </span>names 图片名数组</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;Function&#125;</span> </span>cb 加载回调</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;String&#125;</span> </span>prefix 图片路径配置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">preloadImage</span>(<span class="params">names, cb, prefix, onProgress</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">0</span>,</span><br><span class="line">    img,</span><br><span class="line">    imgs = &#123;&#125;</span><br><span class="line">  names.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    img = <span class="keyword">new</span> Image()</span><br><span class="line">    img.onload = (<span class="function"><span class="keyword">function</span>(<span class="params">name, img</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        imgs[name] = img</span><br><span class="line">        n++</span><br><span class="line">        onProgress(n, names.length)</span><br><span class="line">        n === names.length &amp;&amp; cb &amp;&amp; cb(imgs)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(name, img)</span><br><span class="line">    img.src = (prefix || <span class="string">''</span>) + name</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="预加载-js-封装函数-使用"><a href="#预加载-js-封装函数-使用" class="headerlink" title="预加载 js 封装函数 - 使用"></a>预加载 js 封装函数 - 使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 当浏览器准备好了</span></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 需要加载的静态资源的数组</span></span><br><span class="line">  <span class="keyword">var</span> imgs = [</span><br><span class="line">    <span class="string">'text1.png'</span>,</span><br><span class="line">    <span class="string">'text2.png'</span></span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  preloadImage(<span class="string">'图片数组'</span>,<span class="string">'当加载完成时回调'</span>,<span class="string">'当前数组图片的路径'</span>,<span class="string">'加载时回调 n - 当前加载到第几张，total - 当前加载的静态资源总数'</span>)</span><br><span class="line">  preloadImage(imgs,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,<span class="string">'./img/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">n, total</span>)</span>&#123;&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端 - js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-实用组件//" class="article-tag-list-link color3">web前端 - 实用组件</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-实用组件/预加载组件//" class="article-tag-list-link color1">预加载组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/28/day8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-day7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/26/day7/" target="_blank">js - ajax获取接口数据</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/26/day7/" class="archive-article-date">
+        <time datetime="2019-08-26T10:10:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="简单明了直接码代码！！！"><a href="#简单明了直接码代码！！！" class="headerlink" title="简单明了直接码代码！！！"></a>简单明了直接码代码！！！</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: <span class="string">'https://www.easy-mock.com/mock/5d6390b90915be18898ac4bd/Hani-ChenURL/test'</span>, <span class="comment">//接口链接</span></span><br><span class="line">  type: <span class="string">'get'</span>, <span class="comment">//请求方式</span></span><br><span class="line">  <span class="comment">// 如果获取成功</span></span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//成功时返回的data值</span></span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">    <span class="keyword">var</span> musicData = data.slider</span><br><span class="line">    <span class="built_in">console</span>.log(musicData)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 如果获取失败</span></span><br><span class="line">  error: <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端 - js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-实用组件//" class="article-tag-list-link color3">web前端 - 实用组件</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-实用组件/接口获取组件//" class="article-tag-list-link color2">接口获取组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/26/day7/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-day6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/08/day6/" target="_blank">博客搭建 hexo框架搭建</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/08/day6/" class="archive-article-date">
+        <time datetime="2019-08-08T01:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Hexo-博客搭建图文教程"><a href="#Hexo-博客搭建图文教程" class="headerlink" title="Hexo 博客搭建图文教程"></a>Hexo 博客搭建图文教程</h1><h2 id="Node-js-环境配置"><a href="#Node-js-环境配置" class="headerlink" title="Node.js 环境配置"></a><strong>Node.js</strong> 环境配置</h2><p>我们可以去 <a href="https://nodejs.org/en/" target="_blank" rel="noopener"><strong>官网</strong></a> 直接下载相对应的 node 版本</p>
+<p>或者直接点击下载</p>
+<ul>
+<li><a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x86.msi" target="_blank" rel="noopener"><strong>Windows Installer 32-bit</strong></a></li>
+<li><a href="https://nodejs.org/dist/v4.2.3/node-v4.2.3-x64.msi" target="_blank" rel="noopener"><strong>Windows Installer 64-bit</strong></a></li>
+</ul>
+<p>根据自己的 Windows 版本选择相应的安装文件 现在的机子基本都是 64 位的，不知道的选择 64 位的安装包</p>
+<p><strong>保持默认设置即可，一路 Next，安装很快就结束了。</strong></p>
+<h3 id="安装好后我们看一下-Node-js-环境是否配置成功"><a href="#安装好后我们看一下-Node-js-环境是否配置成功" class="headerlink" title="安装好后我们看一下 Node.js 环境是否配置成功"></a>安装好后我们看一下 <strong>Node.js</strong> 环境是否配置成功</h3><ul>
+<li><p>首先使用快捷键 <code>Win + R</code> 运行窗口</p>
+</li>
+<li><ul>
+<li>在新打开的窗口中输入 cmd，敲击回车，打开命令行界面。</li>
+</ul>
+</li>
+<li><p>或者返回桌面使用方式 <code>shift + 鼠标右键</code> 选择在此处打开命令窗口</p>
+</li>
+</ul>
+<p>在打开的命令行界面中，输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果结果如下图所示，则说明安装正确，可以进行下一步了，如果不正确，则需要回头检查自己的安装过程。</strong> <br/><br><img src="/images/day6/test.png" alt=""></p>
+<h2 id="Git-环境配置"><a href="#Git-环境配置" class="headerlink" title="Git 环境配置"></a><strong>Git</strong> 环境配置</h2><p>同样你也可以去 <a href="https://git-scm.com/" target="_blank" rel="noopener"><strong>官网</strong></a> 直接下载相对应的 Git 版本</p>
+<p>或者直接点击下载</p>
+<ul>
+<li><a href="https://github.com/git-for-windows/git/releases/download/v2.22.0.windows.1/Git-2.22.0-32-bit.exe" target="_blank" rel="noopener"><strong>用于 Windows 安装程序的 32 位 Git</strong></a></li>
+<li><a href="https://github.com/git-for-windows/git/releases/download/v2.22.0.windows.1/Git-2.22.0-64-bit.exe" target="_blank" rel="noopener"><strong>用于 Windows 安装程序的 64 位 Git</strong></a></li>
+</ul>
+<p>也是根据自己的 Windows 版本选择相应的安装文件 现在的机子基本都是 64 位的，不知道的选择 64 位的安装包</p>
+<p>同样在打开的命令行界面中，输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p><strong>同样如果结果如下图所示，则说明安装正确，可以进行下一步了，如果不正确，则需要回头检查自己的安装过程。</strong> <br/><br><img src="/images/day6/test1.png" alt=""></p>
+<h2 id="配置-gitHub-注册账号"><a href="#配置-gitHub-注册账号" class="headerlink" title="配置 gitHub (注册账号)"></a>配置 gitHub (注册账号)</h2><ul>
+<li><p><strong>如果已经拥有账号，请跳过此步~</strong></p>
+</li>
+<li><p>点击 <a href="https://github.com/" target="_blank" rel="noopener">注册</a> 分别填入自己的用户名，邮箱，密码。填写完成之后去邮箱查看注册填写的邮件 查看收件箱</p>
+</li>
+<li><p>点开 gitHub 发送给你的注册确认信，确认注册，结束注册流程。<br><strong>一定要确认注册，否则无法使用！</strong></p>
+</li>
+</ul>
+<h2 id="创建-gitHub-仓库"><a href="#创建-gitHub-仓库" class="headerlink" title="创建 gitHub 仓库"></a>创建 gitHub 仓库</h2><p>注册完成后登陆 gitHub 点击左上角 <code>New</code> 创建项目</p>
+<ul>
+<li>进入代码库创建页面：<br><img src="/images/day6/test2.png" alt=""><br>Repository name 下填写 yourname.github.io<br>Description (optional) 下填写仓库描述 (可为空)<br>填完之后直接点创建就好<br>创建完成后是这样的<br><img src="/images/day6/test5.png" alt=""></li>
+</ul>
+<h2 id="密钥生成-添加"><a href="#密钥生成-添加" class="headerlink" title="密钥生成 添加"></a>密钥生成 添加</h2><p>我们回到桌面 右键 点击 <code>Git Bash Here</code> 进入 (如果么有这个选项请回到 Git 环境配置)<br>进入后分别输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-Hexo"><a href="#配置-Hexo" class="headerlink" title="配置 Hexo"></a>配置 Hexo</h2><p>首先我们在电脑上的任意位置创建一个文件夹(就是你以后的博客项目了)</p>
+<p>同样 <code>shift + 鼠标右键</code> 选择在此处打开命令窗口。</p>
+<p>在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>执行完之后 接着在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+
+<p>然后你会看到命令行窗口刷了一大堆白字，执行完成之后我们来看一看 Hexo 是不是已经安装好了。 在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果结果如下图所示，则说明安装正确，可以进行下一步了，如果不正确，则需要回头检查自己的安装过程。</strong> <br/><br><img src="/images/day6/test3.png" alt=""></p>
+<p>紧接着我们要初始化 hexo</p>
+<p>我们继续在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果执行结果如下图所示，则说明初始化成功，可以进行下一步了，如果不正确，则需要回头检查自己的初始化过程。</strong> <br/><br><img src="/images/day6/test4.png" alt=""></p>
+<p>之后我们要安装依赖我们继续在命令行中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>之后 npm 将会自动安装你需要的组件，只需要等待 npm 操作即可。</p>
+<h2 id="首次体验-Hexo"><a href="#首次体验-Hexo" class="headerlink" title="首次体验 Hexo"></a>首次体验 Hexo</h2><p>同样是在命令行中，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>等操作完成之后继续输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>执行完成之后就会提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop</span><br></pre></td></tr></table></figure>
+
+<p>在浏览器中打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 你将会看到一个完美的博客就展示在我们面前了</p>
+<p>关于 hexo 的配置我们可以去 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官网</a> 瞅瞅</p>
+<h2 id="关联-gitHub-仓库"><a href="#关联-gitHub-仓库" class="headerlink" title="关联 gitHub 仓库"></a>关联 gitHub 仓库</h2><p>打开 <code>Hexo</code> 项目文件夹 找到配置文件_config.yml，翻到最后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type:</span><br></pre></td></tr></table></figure>
+
+<p>将他修改成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 这里填入你之前在GitHub上创建仓库的完整链接（在创建仓库时提到的那个地址 直接复制过来）</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+
+<p>地址在 创建仓库时提到的那个地址 直接复制过来</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">web前端 - 环境配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-框架搭建//" class="article-tag-list-link color3">web前端 - 框架搭建</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-框架搭建/web前端-环境配置//" class="article-tag-list-link color3">web前端 - 环境配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/08/day6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-day5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -573,6 +1209,161 @@ pause.onclick = function() {
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/08/07/day5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-day4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/08/06/day4/" target="_blank">音频插件 howler 使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/08/06/day4/" class="archive-article-date">
+        <time datetime="2019-08-06T13:30:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="点击按钮播放背景音效"><a href="#点击按钮播放背景音效" class="headerlink" title="点击按钮播放背景音效"></a><strong>点击按钮播放背景音效</strong></h1><p>用插件之前我们是要引入插件库的 本篇文章使用 <code>howler.js</code> 本地引入<br>一个 JSON 动画文件</p>
+<p>然后我们的主角 <code>howler.js</code> 要出场了</p>
+<p>我们通过 <code>cnpm i howler -s</code> 下载 <strong>howler.js</strong></p>
+<p>废话不多说咱直接上代码</p>
+<h3 id="html-代码块"><a href="#html-代码块" class="headerlink" title="html 代码块"></a>html 代码块</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 我们就只用两个按钮来做本次demo演示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"play"</span>&gt;</span>播放<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"stop"</span>&gt;</span>暂停<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 引入howler --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/howler.min.js"</span> <span class="attr">type</span>=<span class="string">'text/javascripnt'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="js-代码块"><a href="#js-代码块" class="headerlink" title="js 代码块"></a>js 代码块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看按钮音效</span></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">var</span> viewSound = <span class="keyword">new</span> Howl(&#123;</span><br><span class="line">  <span class="comment">/* 音频路径 可用相对路径 */</span></span><br><span class="line">  src: [<span class="string">'/audio/alert.mp3'</span>],</span><br><span class="line">  <span class="comment">/* 是否循环播放 默认为 false */</span></span><br><span class="line">  autoplay: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">/* 是否循环播放 默认为 false */</span></span><br><span class="line">  loop: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">/* 设置声音大小，从 0.0 到 1.0 */</span></span><br><span class="line">  volume: <span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">  onend: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'自动结束!'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  onstop: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'暂停!'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  onplay: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'播放!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stop = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'stop'</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> play = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'play'</span>)[<span class="number">0</span>]</span><br><span class="line">stop.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 暂停音效 */</span></span><br><span class="line">  viewSound.stop()</span><br><span class="line">&#125;</span><br><span class="line">play.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 播放音效 */</span></span><br><span class="line">  viewSound.play()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="操作实例"><a href="#操作实例" class="headerlink" title="操作实例"></a>操作实例</h3>
+
+<!-- 我们就只用两个按钮来做本次demo演示 -->
+
+<button class="play">播放</button>
+<button class="stop">暂停</button>
+
+<!-- 引入howler -->
+<script src="/js/howler.min.js" type='text/javascripnt'></script>
+<script>
+var viewSound = new Howl({
+  /* 音频路径 */
+  src: ['/audio/alert.mp3'],
+  /* 是否循环播放 默认为 false */
+  autoplay: false,
+  /* 是否循环播放 默认为 false */
+  loop: false,
+  /* 设置声音大小，从 0.0 到 1.0 */
+  volume: 1,
+
+  onend: function() {
+    console.log('自动结束!')
+  },
+  onstop: function() {
+    console.log('暂停!')
+  },
+  onplay: function() {
+    console.log('播放!')
+  }
+})
+var stop = document.getElementsByClassName('stop')[0]
+var play = document.getElementsByClassName('play')[0]
+stop.onclick = function() {
+  /* 暂停音效 */
+  viewSound.stop()
+}
+play.onclick = function() {
+  /* 播放音效 */
+  viewSound.play() 
+}
+</script>
+
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端 - js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-插件学习//" class="article-tag-list-link color3">web前端 - 插件学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端-插件学习/web前端-案例实现//" class="article-tag-list-link color3">web前端 - 案例实现</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/08/06/day4/">展开全文 >></a>
     </p>
     
 
@@ -1115,93 +1906,10 @@ border-radius: .5em;
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
   
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/07/30/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/07/30/hello-world/" class="archive-article-date">
-        <time datetime="2019-07-30T05:14:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/07/30/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1335,15 +2043,23 @@ border-radius: .5em;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web前端 - js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">web前端 - 小程序</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web前端 - js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">web前端 - vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web前端 - 环境配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">web前端 - html</a>
               </li>
             
             <div class="clearfix"></div>
